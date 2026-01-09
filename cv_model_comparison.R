@@ -19,11 +19,8 @@ seed_for_folds <- 185
 
 # ---- Load data ----
 data1 <- read_excel("data/PDAC_dataset.xlsx")
-colnames(data1)[3:7] <- c("Diagnosis", "Creat", "LYVE1", "REG1", "TFF1")
-data1 <- subset(data1, Diagnosis %in% c(1,3))
+colnames(data1)[3:7] <- c("Diag", "Creat", "LYVE1", "REG1", "TFF1")
 data1$Age <- as.numeric(data1$Age)
-data1$Diag <- ifelse(data1$Diagnosis == 3, 1, 0)
-data1$Diagnosis <- NULL
 
 m_data <- subset(data1, Sex == "M")
 f_data <- subset(data1, Sex == "F")
